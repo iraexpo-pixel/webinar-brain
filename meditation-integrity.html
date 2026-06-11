@@ -7,22 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F7F2EE;
-  --card: #FDFAF7;
-  --deep-plum: #5E4D5F;
-  --pink-haze: #D4998F;
-  --violet-mist: #917282;
-  --sun-glow: #FCC699;
-  --sky-blush: #F4C7AD;
-  --text: #1a1410;
-  --text-soft: #917282;
-  --border: rgba(145,114,130,0.18);
+  --bg: #F7F2EE; --card: #FDFAF7; --deep-plum: #5E4D5F; --pink-haze: #D4998F;
+  --violet-mist: #917282; --sun-glow: #FCC699; --sky-blush: #F4C7AD;
+  --text: #1a1410; --text-soft: #917282; --border: rgba(145,114,130,0.18);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); font-family: 'Jost', sans-serif; font-weight: 300; color: var(--text); min-height: 100vh; }
-
-/* HERO */
 .hero { background: var(--deep-plum); padding: 64px 24px 56px; text-align: center; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; top: -80px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(244,199,173,0.16) 0%, transparent 70%); }
 .hero::after { content: ''; position: absolute; bottom: -60px; left: 8%; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(212,153,143,0.13) 0%, transparent 70%); }
@@ -31,49 +22,31 @@ body { background: var(--bg); font-family: 'Jost', sans-serif; font-weight: 300;
 .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 6vw, 44px); font-weight: 300; color: #FAF5F0; line-height: 1.2; margin-bottom: 14px; }
 .hero-title em { font-style: italic; color: var(--sky-blush); }
 .hero-sub { font-size: 14px; color: rgba(250,245,240,0.6); line-height: 1.75; max-width: 400px; margin: 0 auto; }
-
-/* MAIN */
 .main { max-width: 580px; margin: 0 auto; padding: 40px 20px 80px; }
-
-/* PLAYER */
+.back-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-soft); text-decoration: none; margin-bottom: 32px; letter-spacing: 0.04em; transition: color 0.2s; }
+.back-link:hover { color: var(--deep-plum); }
+.welcome-card { background: linear-gradient(135deg, #5E4D5F 0%, #917282 100%); border-radius: 20px; padding: 32px 28px; margin-bottom: 28px; }
+.welcome-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.5vw, 18px); color: #FAF5F0; line-height: 1.8; }
+.welcome-text p { margin-bottom: 12px; }
+.welcome-text p:last-child { margin-bottom: 0; font-style: italic; color: var(--sky-blush); }
 .player-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; margin-bottom: 28px; }
 .player-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--violet-mist); margin-bottom: 20px; display: block; }
-.player-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 3.5vw, 24px); font-weight: 400; color: var(--deep-plum); line-height: 1.3; margin-bottom: 6px; }
-.player-duration { font-size: 12px; color: var(--text-soft); margin-bottom: 24px; }
-
-/* Custom audio player */
-.audio-wrap { display: flex; flex-direction: column; gap: 14px; }
-.audio-controls { display: flex; align-items: center; gap: 14px; }
-.play-btn { width: 52px; height: 52px; border-radius: 50%; background: var(--deep-plum); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s; }
-.play-btn:hover { opacity: 0.85; }
-.play-btn svg { margin-left: 2px; }
-.time-wrap { flex: 1; display: flex; flex-direction: column; gap: 6px; }
-.progress-bar { width: 100%; height: 3px; background: var(--border); border-radius: 2px; cursor: pointer; position: relative; }
-.progress-fill { height: 100%; background: var(--pink-haze); border-radius: 2px; width: 0%; transition: width 0.1s linear; pointer-events: none; }
-.time-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-soft); }
-
-/* Download */
-.download-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: none; border: 1.5px solid var(--border); border-radius: 12px; padding: 15px 24px; font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text-soft); cursor: pointer; transition: all 0.2s; letter-spacing: 0.06em; text-decoration: none; margin-top: 16px; }
-.download-btn:hover { border-color: var(--violet-mist); color: var(--deep-plum); }
-
-/* INSIGHT */
+.player-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 3.5vw, 24px); font-weight: 400; color: var(--deep-plum); line-height: 1.3; margin-bottom: 20px; }
+.download-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: var(--deep-plum); color: #FAF5F0; border: none; border-radius: 12px; padding: 16px 24px; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.08em; cursor: pointer; transition: opacity 0.2s; text-decoration: none; }
+.download-btn:hover { opacity: 0.85; }
 .insight-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; margin-bottom: 20px; }
 .insight-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink-haze); margin-bottom: 16px; display: block; }
 .insight-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 3.5vw, 24px); font-weight: 400; color: var(--deep-plum); line-height: 1.3; margin-bottom: 14px; }
-.insight-text { font-size: 14px; color: #4a3b35; line-height: 1.85; margin-bottom: 20px; }
-.pull-quote { border-left: 2px solid var(--pink-haze); padding-left: 18px; margin-top: 16px; }
+.insight-text { font-size: 14px; color: #4a3b35; line-height: 1.85; margin-bottom: 14px; }
+.pull-quote { border-left: 2px solid var(--pink-haze); padding-left: 18px; margin-top: 16px; margin-bottom: 0; }
 .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.5vw, 18px); font-style: italic; color: var(--deep-plum); line-height: 1.6; }
-
-/* BACK */
-.back-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-soft); text-decoration: none; margin-bottom: 32px; letter-spacing: 0.04em; transition: color 0.2s; }
-.back-link:hover { color: var(--deep-plum); }
-
-/* SIGNATURE */
+.social-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px; margin-bottom: 20px; text-align: center; }
+.social-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--violet-mist); margin-bottom: 20px; display: block; }
+.social-links { display: flex; flex-direction: column; gap: 10px; }
+.social-link { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 20px; border: 1.5px solid var(--border); border-radius: 12px; text-decoration: none; font-size: 13px; color: var(--text-soft); letter-spacing: 0.06em; transition: all 0.2s; }
+.social-link:hover { border-color: var(--violet-mist); color: var(--deep-plum); }
 .signature { text-align: center; font-size: 11px; color: var(--text-soft); letter-spacing: 0.12em; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
-
-@media (max-width: 480px) {
-  .player-card, .insight-card { padding: 24px 20px; }
-}
+@media (max-width: 480px) { .player-card, .insight-card, .social-card, .welcome-card { padding: 24px 20px; } }
 </style>
 </head>
 <body>
@@ -88,37 +61,23 @@ body { background: var(--bg); font-family: 'Jost', sans-serif; font-weight: 300;
 
 <div class="main">
 
-  <a href="https://isakova.online/quiz.html" class="back-link">
+  <a href="https://isakova.online/erikson.html" class="back-link">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    Вернуться к результатам
+    Пройти тест заново
   </a>
+
+  <div class="welcome-card">
+    <div class="welcome-text">
+      <p>Поздравляю! Ты начала прекрасный путь доращивания.</p>
+      <p>Ты уже прекрасна и достаточна. Как бутон, который уже содержит в себе весь цветок — всю форму, всю красоту, весь потенциал.</p>
+      <p>Новые краски — это не исправление. Это раскрытие того, что уже есть.</p>
+      <p>Твоя первая медитация — первый лучик тепла. Она уже ждёт.</p>
+    </div>
+  </div>
 
   <div class="player-card">
     <span class="player-label">Аудио медитация</span>
     <div class="player-title">Принятие своей жизни</div>
-    <div class="player-duration" id="durationLabel">Загрузка...</div>
-
-    <audio id="audioPlayer" preload="metadata">
-      <source src="https://drive.google.com/uc?export=download&id=1yovh46ghBZ8PKoYvUZhNoNsjXkQy0Y_g" type="audio/mpeg">
-    </audio>
-
-    <div class="audio-wrap">
-      <div class="audio-controls">
-        <button class="play-btn" id="playBtn" onclick="togglePlay()">
-          <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="#FAF5F0" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-        </button>
-        <div class="time-wrap">
-          <div class="progress-bar" id="progressBar" onclick="seek(event)">
-            <div class="progress-fill" id="progressFill"></div>
-          </div>
-          <div class="time-labels">
-            <span id="currentTime">0:00</span>
-            <span id="totalTime">0:00</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <a href="https://drive.google.com/uc?export=download&id=1yovh46ghBZ8PKoYvUZhNoNsjXkQy0Y_g" download="Медитация_Интеграция_Исакова.mp3" class="download-btn">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Скачать медитацию
@@ -128,68 +87,29 @@ body { background: var(--bg); font-family: 'Jost', sans-serif; font-weight: 300;
   <div class="insight-card">
     <span class="insight-eyebrow">Интеграция · Стадия 8 по Эриксону</span>
     <h2 class="insight-title">Прошлое давит. Принять его как своё — пока не выходит</h2>
-    <p class="insight-text">Интеграция — это самый ранний фундамент психики. Когда он нестабилен, взрослая женщина живёт в постоянной готовности к тому, что подведут. Отсюда — гиперконтроль, сложность принимать заботу, хроническая тревога даже в спокойные периоды.</p>
+    <p class="insight-text">Интеграция — это способность смотреть на свою жизнь и говорить: «да, это моя жизнь». Со всем, что в ней было.</p>
     <p class="insight-text">Когда эта задача активируется раньше времени — появляется тихое отчаяние, сожаление о несбывшемся, ощущение что поезд ушёл. Это не конец — это сигнал, что пора собрать себя в целое.</p>
     <div class="pull-quote">
       <p>Твоя жизнь — не ошибка. Даже её незавершённые части привели тебя именно сюда.</p>
     </div>
   </div>
 
+  <div class="social-card">
+    <span class="social-label">Больше о ментальном взрослении</span>
+    <div class="social-links">
+      <a href="https://www.instagram.com/_iryna_isakova/" target="_blank" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        Instagram @_iryna_isakova
+      </a>
+      <a href="https://irynaisakova.shop/" target="_blank" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        irynaisakova.shop
+      </a>
+    </div>
+  </div>
+
   <div class="signature">Ирина Исакова · Ментальное взросление женщин</div>
 </div>
 
-<script>
-const audio = document.getElementById('audioPlayer');
-const playBtn = document.getElementById('playBtn');
-const playIcon = document.getElementById('playIcon');
-const progressFill = document.getElementById('progressFill');
-const currentTimeEl = document.getElementById('currentTime');
-const totalTimeEl = document.getElementById('totalTime');
-const durationLabel = document.getElementById('durationLabel');
-
-const playPath = '<polygon points="6 3 20 12 6 21 6 3"/>';
-const pausePath = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
-
-function fmt(s) {
-  const m = Math.floor(s / 60);
-  const sec = Math.floor(s % 60);
-  return m + ':' + (sec < 10 ? '0' : '') + sec;
-}
-
-audio.addEventListener('loadedmetadata', () => {
-  totalTimeEl.textContent = fmt(audio.duration);
-  durationLabel.textContent = fmt(audio.duration) + ' мин';
-});
-
-audio.addEventListener('timeupdate', () => {
-  if (!audio.duration) return;
-  const pct = (audio.currentTime / audio.duration) * 100;
-  progressFill.style.width = pct + '%';
-  currentTimeEl.textContent = fmt(audio.currentTime);
-});
-
-audio.addEventListener('ended', () => {
-  playIcon.innerHTML = playPath;
-  progressFill.style.width = '0%';
-  currentTimeEl.textContent = '0:00';
-});
-
-function togglePlay() {
-  if (audio.paused) {
-    audio.play();
-    playIcon.innerHTML = pausePath;
-  } else {
-    audio.pause();
-    playIcon.innerHTML = playPath;
-  }
-}
-
-function seek(e) {
-  const bar = document.getElementById('progressBar');
-  const rect = bar.getBoundingClientRect();
-  const pct = (e.clientX - rect.left) / rect.width;
-  audio.currentTime = pct * audio.duration;
-}
-</script>
 </body>
 </html>
